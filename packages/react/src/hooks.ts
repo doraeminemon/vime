@@ -26,12 +26,12 @@ export const usePlayer = (ref: React.RefObject<HTMLElement | null>) => {
   return player;
 };
 
-export type PropBinding<P extends keyof PlayerProps> = [
+export type PropBinding<P extends keyof PlayerProps> = {
   value: PlayerProps[P],
   setValue: P extends keyof WritableProps
     ? (value: PlayerProps[P]) => void
     : undefined,
-];
+};
 
 /**
  * Binds the given `prop` to the closest ancestor player of the given `ref`. When the property
